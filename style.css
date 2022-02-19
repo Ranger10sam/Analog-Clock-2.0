@@ -1,0 +1,82 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+body{
+    position: relative;
+    background: linear-gradient(to right, #dbdbdb, #a1a1a1) no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.clock{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: #dbdbdb;
+    border-radius: 50%;
+    box-shadow: rgba(136,165,191,0.48) 6px 2px 16px 0px;
+}
+.clock .number{
+    --rotation:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.clock .number1{ --rotation: 30deg; }
+.clock .number2{ --rotation: 60deg; }
+.clock .number3{ --rotation: 90deg; }
+.clock .number4{ --rotation: 120deg; }
+.clock .number5{ --rotation: 150deg; }
+.clock .number6{ --rotation:180deg; }
+.clock .number7{ --rotation: 210deg; }
+.clock .number8{ --rotation: 240deg; }
+.clock .number9{ --rotation: 270deg; }
+.clock .number10{ --rotation: 300deg; }
+.clock .number11{ --rotation: 330deg; }
+
+.clock .hand{
+    --rotation:0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 10px;    
+    transform-origin: bottom;
+    z-index: 10;
+}
+.clock::after{
+    content: '';
+    position: absolute;
+    background-color: darkslategrey;
+    z-index: 10;
+    width: 15px;
+    height:15px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.clock .hand.second{
+    width:3px;
+    height:40%;
+    background-color: red;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.clock .hand.minute{
+    width: 1.7%;
+    height:35%;
+    background-color: #a1a1a1;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.clock .hand.hour{
+    width:10px;
+    height:30%;
+    background-color: #7e7e7e;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
